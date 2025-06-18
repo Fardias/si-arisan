@@ -5,54 +5,53 @@
 
 @section('content')
 <div class="grid grid-cols-1 gap-6">
-    <div class="bg-white p-6 rounded-xl shadow-md border border-gray-200">
-        <h2 class="text-xl font-semibold text-gray-800 mb-4">Daftar Anggota</h2>
+    <div class="bg-[#fffaea] p-6 rounded-xl shadow-md border border-[#65764a]">
+        <h2 class="text-xl font-semibold text-[#65764a] mb-4">Daftar Anggota</h2>
 
         <div class="mb-4">
-            <a href="{{ route('anggota.create') }}" class="inline-flex items-center px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition">
+            <a href="{{ route('anggota.create') }}" class="inline-flex items-center px-4 py-2 bg-[#65764a] text-[#fffaea] rounded hover:bg-[#8fa16b] transition">
                 Tambah Anggota
             </a>
         </div>
 
-        
         <div class="overflow-x-auto">
-            <table class="min-w-full divide-y divide-gray-200">
-                <thead class="bg-gray-50">
+            <table class="min-w-full divide-y divide-[#65764a]">
+                <thead class="bg-[#fffaea]">
                     <tr>
-                        <th class="px-4 py-2 text-left text-sm font-semibold text-gray-600">No</th>
-                        <th class="px-4 py-2 text-left text-sm font-semibold text-gray-600">Nama</th>
-                        <th class="px-4 py-2 text-left text-sm font-semibold text-gray-600">No HP</th>
-                        <th class="px-4 py-2 text-left text-sm font-semibold text-gray-600">Tanggal Gabung</th>
-                        <th class="px-4 py-2 text-left text-sm font-semibold text-gray-600">Status</th>
-                        <th class="px-4 py-2 text-center text-sm font-semibold text-gray-600">Aksi</th>
+                        <th class="px-4 py-2 text-left text-sm font-semibold text-[#65764a]">No</th>
+                        <th class="px-4 py-2 text-left text-sm font-semibold text-[#65764a]">Nama</th>
+                        <th class="px-4 py-2 text-left text-sm font-semibold text-[#65764a]">No HP</th>
+                        <th class="px-4 py-2 text-left text-sm font-semibold text-[#65764a]">Tanggal Gabung</th>
+                        <th class="px-4 py-2 text-left text-sm font-semibold text-[#65764a]">Status</th>
+                        <th class="px-4 py-2 text-center text-sm font-semibold text-[#65764a]">Aksi</th>
                     </tr>
                 </thead>
-                <tbody class="bg-white divide-y divide-gray-100">
+                <tbody class="bg-[#fffaea] divide-y divide-[#65764a]">
                     @forelse($data as $anggota)
-                        <tr class="hover:bg-gray-50 transition">
-                            <td class="px-4 py-2 text-sm text-gray-700">{{ $loop->iteration }}</td>
-                            <td class="px-4 py-2 text-sm text-gray-800">{{ $anggota->nama }}</td>
-                            <td class="px-4 py-2 text-sm text-gray-800">{{ $anggota->no_hp }}</td>
-                            <td class="px-4 py-2 text-sm text-gray-800">{{ \Carbon\Carbon::parse($anggota->tanggal_bergabung)->format('d/m/Y') }}</td>
+                        <tr class="hover:bg-[#f3f6e7] transition">
+                            <td class="px-4 py-2 text-sm text-[#65764a]">{{ $loop->iteration }}</td>
+                            <td class="px-4 py-2 text-sm text-[#65764a]">{{ $anggota->nama }}</td>
+                            <td class="px-4 py-2 text-sm text-[#65764a]">{{ $anggota->no_hp }}</td>
+                            <td class="px-4 py-2 text-sm text-[#65764a]">{{ \Carbon\Carbon::parse($anggota->tanggal_bergabung)->format('d/m/Y') }}</td>
                             <td class="px-4 py-2 text-sm">
                                 @if($anggota->status_keikutsertaan === 1)
-                                    <span class="px-2 py-1 bg-green-100 text-green-800 text-xs rounded-full">Aktif</span>
+                                    <span class="px-2 py-1 bg-[#65764a] text-[#fffaea] text-xs rounded-full">Aktif</span>
                                 @else
-                                    <span class="px-2 py-1 bg-red-100 text-red-800 text-xs rounded-full">Tidak Aktif</span>
+                                    <span class="px-2 py-1 bg-[#fee2e2] text-[#b91c1c] text-xs rounded-full">Tidak Aktif</span>
                                 @endif
                             </td>
                             <td class="px-4 py-2 text-center text-sm">
-                                <a href="{{ route('anggota.edit', $anggota->id) }}" class="text-blue-600 hover:underline text-sm">Edit</a> |
+                                <a href="{{ route('anggota.edit', $anggota->id) }}" class="text-[#65764a] hover:underline text-sm">Edit</a> |
                                 <form action="{{ route('anggota.destroy', $anggota->id) }}" method="POST" class="inline">
                                     @csrf
                                     @method('DELETE')
-                                    <button type="submit" class="text-red-600 hover:underline text-sm">Hapus</button>
+                                    <button type="submit" class="text-red-400 hover:underline text-sm">Hapus</button>
                                 </form>
                             </td>
                         </tr>
                     @empty
                         <tr>
-                            <td colspan="6" class="px-4 py-4 text-center text-gray-500">Belum ada anggota.</td>
+                            <td colspan="6" class="px-4 py-4 text-center text-[#65764a]">Belum ada anggota.</td>
                         </tr>
                     @endforelse
                 </tbody>

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Anggota;
+use App\Models\TransaksiArisan;
 use Illuminate\Http\Request;
 
 class DashboardController extends Controller
@@ -11,6 +12,7 @@ class DashboardController extends Controller
     {
         $get_anggota = Anggota::all();
         $total_anggota = Anggota::count();
-        return view('dashboard.main', compact('total_anggota', 'get_anggota'));
+        $total_uang = TransaksiArisan::all()->sum('total_setoran');
+        return view('dashboard.main', compact('total_anggota', 'get_anggota','total_uang'));
     }
 }

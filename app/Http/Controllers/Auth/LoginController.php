@@ -20,9 +20,9 @@ class LoginController extends Controller
         ]);
 
         if ($credentials['username'] === 'admin' && $credentials['password'] === 'root') {
-            return redirect()->route('dashboard.main')->with('success', 'Login successful');
+            return redirect()->route('dashboard')->with('success', 'Login successful');
         }
 
         return back()->with('error', 'Invalid credentials');
     }
-} 
+}
