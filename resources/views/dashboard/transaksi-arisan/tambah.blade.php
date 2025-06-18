@@ -21,6 +21,12 @@
             </select>
         </div>
 
+        <!-- Periode -->
+        <div class="mb-4">
+            <label for="periode" class="block text-sm font-medium text-gray-700">Periode</label>
+            <input type="date" name="periode" id="periode" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm" required>
+        </div>
+
         <!-- Total Setoran -->
         <div class="mb-4">
             <label for="total_setoran" class="block text-sm font-medium text-gray-700">Total Setoran</label>

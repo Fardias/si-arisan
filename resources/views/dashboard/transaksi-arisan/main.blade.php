@@ -21,7 +21,8 @@
                     <tr>
                         <th class="px-4 py-2 text-left text-sm font-semibold text-gray-600">No</th>
                         <th class="px-4 py-2 text-left text-sm font-semibold text-gray-600">Nama</th>
-                        <th class="px-4 py-2 text-left text-sm font-semibold text-gray-600">total setoran</th>
+                        <th class="px-4 py-2 text-left text-sm font-semibold text-gray-600">Periode</th>
+                        <th class="px-4 py-2 text-left text-sm font-semibold text-gray-600">Total Setoran</th>
                         <th class="px-4 py-2 text-left text-sm font-semibold text-gray-600">Lunas</th>
                         <th class="px-4 py-2 text-left text-sm font-semibold text-gray-600">Menang</th>
                         <th class="px-4 py-2 text-center text-sm font-semibold text-gray-600">Aksi</th>
@@ -32,6 +33,7 @@
                         <tr class="hover:bg-gray-50 transition">
                             <td class="px-4 py-2 text-sm text-gray-700">{{ $loop->iteration }}</td>
                             <td class="px-4 py-2 text-sm text-gray-800">{{ $transaksi_arisan->anggota->nama }}</td>
+                            <td class="px-4 py-2 text-sm text-gray-800">{{ $transaksi_arisan->periode }}</td>
                             <td class="px-4 py-2 text-sm text-gray-800">{{ $transaksi_arisan->total_setoran }}</td>
                             <td class="px-4 py-2 text-sm text-gray-800">
                                 @if($transaksi_arisan->status_sudah_lunas)

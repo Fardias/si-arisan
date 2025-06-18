@@ -34,6 +34,7 @@ class TransaksiArisanController extends Controller
         //
         $request->validate([
             'anggota_id' => 'required|exists:anggotas,id',
+            'periode' => 'required|date',
             'total_setoran' => 'required|numeric',
             'status_sudah_lunas' => 'required|boolean',
             'status_menang_arisan' => 'required|boolean',
@@ -70,6 +71,7 @@ class TransaksiArisanController extends Controller
     {
         $request->validate([
             'anggota_id' => 'required|exists:anggotas,id',
+            'periode' => 'required|date',
             'total_setoran' => 'required|numeric',
             'status_sudah_lunas' => 'required|boolean',
             'status_menang_arisan' => 'required|boolean',

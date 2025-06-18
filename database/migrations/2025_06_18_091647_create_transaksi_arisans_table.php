@@ -14,9 +14,10 @@ return new class extends Migration
         Schema::create('transaksi_arisans', function (Blueprint $table) {
             $table->id();
             $table->foreignId('anggota_id')->constrained('anggotas')->onDelete('cascade');
-            $table->decimal('total_setoran', 10, 2)->default(0.00); 
-            $table->boolean('status_sudah_lunas')->default(false); 
-            $table->boolean('status_menang_arisan')->default(false); 
+            $table->date('periode');
+            $table->integer('total_setoran')->default(0);
+            $table->boolean('status_sudah_lunas')->default(false);
+            $table->boolean('status_menang_arisan')->default(false);
             $table->timestamps();
         });
     }
