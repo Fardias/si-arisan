@@ -13,4 +13,9 @@ class Anggota extends Model
         'status_keikutsertaan',
         'tanggal_bergabung',
     ];
+
+    public function transaksi()
+    {
+        return $this->hasMany(TransaksiArisan::class);
+    }
 }

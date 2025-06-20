@@ -1,10 +1,10 @@
 @extends('layouts.app')
 
 @section('title', 'Dashboard')
-@section('header', 'Dashboard')
+{{-- @section('header', 'Dashboard') --}}
 
 @section('content')
-    <div class="min-h-screen bg-gradient-to-br from-slate-50 to-slate-100 p-6">
+    <div class="min-h-screen bg-gradient-to-br from-slate-50 to-slate-100 p-6 rounded-2xl -mt-6">
         {{-- Header Dashboard --}}
         <div class="mb-8">
             <div class="flex items-center space-x-4 mb-2">
@@ -120,7 +120,7 @@
                     <div class="space-y-1">
                         <div
                             class="text-3xl font-bold text-blue-600 group-hover:text-blue-700 transition-colors duration-300">
-                            {{ $transaksi_bulan_ini ?? 0 }}
+                            Rp {{ number_format($total_transaksi_bulan_ini, 0, ',', '.') }}
                         </div>
                         <p class="text-sm text-slate-600">Transaksi aktif</p>
                     </div>
@@ -152,7 +152,7 @@
                     <div class="space-y-1">
                         <div
                             class="text-3xl font-bold text-amber-600 group-hover:text-amber-700 transition-colors duration-300">
-                            {{ $pembayaran_lunas ?? 0 }}%
+                            {{ $sudah_lunas }} / {{ $total_anggota }}
                         </div>
                         <p class="text-sm text-slate-600">Sudah lunas</p>
                     </div>
@@ -239,28 +239,28 @@
             </div>
 
             <div class="space-y-4">
-                <div class="flex items-center space-x-4 p-3 rounded-lg hover:bg-slate-50 transition-colors duration-200">
-                    <div class="w-2 h-2 bg-green-500 rounded-full"></div>
-                    <div class="flex-1">
-                        <p class="text-sm font-medium text-slate-800">Transaksi baru ditambahkan</p>
-                        <p class="text-xs text-slate-500">2 menit yang lalu</p>
+                @foreach ($aktivitas as $item)
+                    @php
+                        $warna = match ($item->tipe) {
+                            'anggota' => 'bg-blue-500',
+                            'transaksi' => str_contains($item->keterangan, 'lunas') ? 'bg-green-500' : 'bg-amber-500',
+                            default => 'bg-slate-400',
+                        };
+                    @endphp
+
+                    <div
+                        class="flex items-center space-x-4 p-3 rounded-lg hover:bg-slate-50 transition-colors duration-200">
+                        <div class="w-2 h-2 {{ $warna }} rounded-full"></div>
+                        <div class="flex-1">
+                            <p class="text-sm font-medium text-slate-800">
+                                {{ $item->keterangan }} {{ $item->nama }}
+                            </p>
+                            <p class="text-xs text-slate-500">{{ $item->created_at->diffForHumans() }}</p>
+                        </div>
                     </div>
-                </div>
-                <div class="flex items-center space-x-4 p-3 rounded-lg hover:bg-slate-50 transition-colors duration-200">
-                    <div class="w-2 h-2 bg-blue-500 rounded-full"></div>
-                    <div class="flex-1">
-                        <p class="text-sm font-medium text-slate-800">Anggota baru bergabung</p>
-                        <p class="text-xs text-slate-500">1 jam yang lalu</p>
-                    </div>
-                </div>
-                <div class="flex items-center space-x-4 p-3 rounded-lg hover:bg-slate-50 transition-colors duration-200">
-                    <div class="w-2 h-2 bg-amber-500 rounded-full"></div>
-                    <div class="flex-1">
-                        <p class="text-sm font-medium text-slate-800">Pembayaran berhasil dikonfirmasi</p>
-                        <p class="text-xs text-slate-500">3 jam yang lalu</p>
-                    </div>
-                </div>
+                @endforeach
             </div>
+
         </div>
     </div>
 @endsection
