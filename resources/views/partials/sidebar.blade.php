@@ -29,7 +29,7 @@
 
     <!-- Tombol Logout -->
     <div class="flex-shrink-0 mt-auto mb-5">
-        <form method="POST" action="">
+        <form method="POST" action="{{ route('logout') }}">
             @csrf
             <button type="submit"
                 class="w-full text-left block py-2 px-4 rounded-md font-medium transition-colors duration-200 ease-in-out text-white bg-red-500 hover:bg-red-600">
