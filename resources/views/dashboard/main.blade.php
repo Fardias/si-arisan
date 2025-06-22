@@ -1,11 +1,9 @@
 @extends('layouts.app')
 
 @section('title', 'Dashboard')
-{{-- @section('header', 'Dashboard') --}}
 
 @section('content')
     <div class="min-h-screen bg-gradient-to-br from-slate-50 to-slate-100 p-6 rounded-2xl -mt-6">
-        {{-- Header Dashboard --}}
         <div class="mb-8">
             <div class="flex items-center space-x-4 mb-2">
                 <div class="bg-gradient-to-r from-[#65764a] to-[#52603c] p-3 rounded-xl shadow-lg">
@@ -29,10 +27,8 @@
             </div>
         </div>
 
-        {{-- Statistics Cards --}}
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
 
-            {{-- Total Anggota Card --}}
             <div
                 class="group relative overflow-hidden bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1">
                 <div class="absolute inset-0 bg-gradient-to-br from-[#65764a]/5 to-[#52603c]/10"></div>
@@ -58,14 +54,12 @@
                         </div>
                         <p class="text-sm text-slate-600">Anggota terdaftar</p>
                     </div>
-                    {{-- Decorative element --}}
                     <div
                         class="absolute -bottom-2 -right-2 w-20 h-20 bg-gradient-to-br from-[#65764a]/10 to-transparent rounded-full">
                     </div>
                 </div>
             </div>
 
-            {{-- Total Uang Card --}}
             <div
                 class="group relative overflow-hidden bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1">
                 <div class="absolute inset-0 bg-gradient-to-br from-emerald-500/5 to-emerald-600/10"></div>
@@ -91,14 +85,12 @@
                         </div>
                         <p class="text-sm text-slate-600">Dana terkumpul</p>
                     </div>
-                    {{-- Decorative element --}}
                     <div
                         class="absolute -bottom-2 -right-2 w-20 h-20 bg-gradient-to-br from-emerald-500/10 to-transparent rounded-full">
                     </div>
                 </div>
             </div>
 
-            {{-- Transaksi Bulan Ini Card --}}
             <div
                 class="group relative overflow-hidden bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1">
                 <div class="absolute inset-0 bg-gradient-to-br from-blue-500/5 to-blue-600/10"></div>
@@ -124,14 +116,12 @@
                         </div>
                         <p class="text-sm text-slate-600">Transaksi aktif</p>
                     </div>
-                    {{-- Decorative element --}}
                     <div
                         class="absolute -bottom-2 -right-2 w-20 h-20 bg-gradient-to-br from-blue-500/10 to-transparent rounded-full">
                     </div>
                 </div>
             </div>
 
-            {{-- Status Lunas Card --}}
             <div
                 class="group relative overflow-hidden bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1">
                 <div class="absolute inset-0 bg-gradient-to-br from-amber-500/5 to-amber-600/10"></div>
@@ -156,7 +146,6 @@
                         </div>
                         <p class="text-sm text-slate-600">Sudah lunas</p>
                     </div>
-                    {{-- Decorative element --}}
                     <div
                         class="absolute -bottom-2 -right-2 w-20 h-20 bg-gradient-to-br from-amber-500/10 to-transparent rounded-full">
                     </div>
@@ -164,7 +153,6 @@
             </div>
         </div>
 
-        {{-- Quick Actions --}}
         <div class="bg-white rounded-2xl shadow-lg p-6 mb-8">
             <div class="flex items-center space-x-3 mb-6">
                 <div class="bg-gradient-to-r from-[#65764a] to-[#52603c] p-2 rounded-lg">
@@ -223,7 +211,6 @@
             </div>
         </div>
 
-        {{-- Recent Activity --}}
         <div class="bg-white rounded-2xl shadow-lg p-6">
             <div class="flex items-center justify-between mb-6">
                 <div class="flex items-center space-x-3">
