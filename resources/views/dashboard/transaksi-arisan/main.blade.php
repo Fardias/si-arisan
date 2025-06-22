@@ -3,7 +3,6 @@
 @section('title', 'Transaksi Arisan')
 
 @section('content')
-    <div class="min-h-screen bg-gradient-to-br from-slate-50 to-slate-100 p-6 rounded-2xl -mt-6">
         <div class="mb-8">
             <div class="flex items-center space-x-4 mb-2">
                 <div class="bg-gradient-to-r from-[#65764a] to-[#52603c] p-3 rounded-xl shadow-lg">
@@ -85,6 +84,5 @@
                     </tbody>
                 </table>
             </div>
-        </div>
     </div>
 @endsection

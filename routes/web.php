@@ -11,9 +11,12 @@ Route::redirect('/', '/login');
 Route::get('/login', [LoginController::class, 'showLoginForm'])->name('login');
 Route::post('/login', [LoginController::class, 'login']);
 // dashboard route
-Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
-// dahsboard anggota route
-// resource route
-Route::resource('anggota', AnggotaController::class);
-// dashboard transaksi arisan route
-Route::resource('transaksi-arisan', TransaksiArisanController::class);
+Route::middleware('auth')->group(function () {
+
+    Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+    // dahsboard anggota route
+    // resource route
+    Route::resource('anggota', AnggotaController::class);
+    // dashboard transaksi arisan route
+    Route::resource('transaksi-arisan', TransaksiArisanController::class);
+});
