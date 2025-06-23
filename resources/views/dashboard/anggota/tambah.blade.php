@@ -4,33 +4,32 @@
 @section('header', 'Tambah Anggota')
 
 @section('content')
-    <div
-        class="max-w-md mx-auto md:max-w-full md:mx-0 bg-white rounded-xl shadow-xl overflow-hidden transform transition-all duration-300 hover:shadow-2xl">
-        {{-- Header dengan gradient background --}}
-        <div class="bg-gradient-to-r from-[#65764a] to-[#52603c] p-6 text-white">
-            <div class="flex items-center space-x-3">
-                <div class="bg-white/20 p-2 rounded-lg">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M18 9v3m0 0v3m0-3h3m-3 0h-3m-2-5a4 4 0 11-8 0 4 4 0 018 0zM3 20a6 6 0 0112 0v1H3v-1z"></path>
-                    </svg>
-                </div>
-                <div>
-                    <h3 class="text-xl font-bold">Tambah Anggota Baru</h3>
-                    <p class="text-white/80 text-sm mt-1">Lengkapi informasi anggota di bawah ini</p>
-                </div>
+    {{-- Include Alert Component --}}
+    @include('components.alert')
+
+    <div class="mb-8">
+        <div class="flex items-center space-x-4 mb-2">
+            <div class="bg-gradient-to-r from-[#65764a] to-[#52603c] p-3 rounded-xl shadow-lg">
+                <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <circle cx="12" cy="8" r="4" stroke="currentColor" stroke-width="2" fill="none" />
+                    <path d="M4 20c0-3.314 3.582-6 8-6s8 2.686 8 6" stroke="currentColor" stroke-width="2" fill="none"
+                        stroke-linecap="round" />
+                </svg>
+            </div>
+            <div>
+                <h1 class="text-3xl font-bold text-slate-800">Tambah Anggota Baru</h1>
+                <p class="text-slate-600">Lengkapi informasi anggota di bawah ini</p>
             </div>
         </div>
-
-        {{-- Form Content --}}
+    </div>
+    <div
+        class="max-w-md mx-auto md:max-w-full md:mx-0 bg-white rounded-xl shadow-xl overflow-hidden transform transition-all duration-300 hover:shadow-2xl">
         <div class="p-6 md:p-8 bg-gradient-to-b from-slate-50 to-white">
             <form action="{{ route('anggota.store') }}" method="POST" class="space-y-5">
                 @csrf
 
-                {{-- Grid Layout untuk Desktop --}}
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-6">
 
-                    {{-- Nama Field --}}
                     <div class="group md:col-span-1">
                         <label for="nama" class="flex items-center space-x-2 text-sm font-semibold text-slate-700 mb-2">
                             <svg class="w-4 h-4 text-[#65764a]" fill="none" stroke="currentColor" viewBox="0 0 24 24">

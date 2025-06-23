@@ -4,15 +4,19 @@
 @section('header', 'Edit Anggota')
 
 @section('content')
+    {{-- Include Alert Component --}}
+    @include('components.alert')
+
     <div
         class="max-w-md mx-auto md:max-w-full md:mx-0 bg-white rounded-xl shadow-xl overflow-hidden transform transition-all duration-300 hover:shadow-2xl">
-        {{-- Header dengan gradient background --}}
+
+        {{-- Header --}}
         <div class="bg-gradient-to-r from-[#65764a] to-[#52603c] p-6 text-white">
             <div class="flex items-center space-x-3">
                 <div class="bg-white/20 p-2 rounded-lg">
                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z">
+                              d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z">
                         </path>
                     </svg>
                 </div>
@@ -25,156 +29,150 @@
 
         {{-- Form Content --}}
         <div class="p-6 md:p-8 bg-gradient-to-b from-slate-50 to-white">
+
             <form action="{{ route('anggota.update', $anggota->id) }}" method="POST" class="space-y-5">
                 @csrf
                 @method('PUT')
 
-                {{-- Grid Layout untuk Desktop --}}
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-6">
 
-                    {{-- Nama Field --}}
+                    {{-- Nama --}}
                     <div class="group md:col-span-1">
                         <label for="nama" class="flex items-center space-x-2 text-sm font-semibold text-slate-700 mb-2">
                             <svg class="w-4 h-4 text-[#65764a]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
+                                      d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
                             </svg>
                             <span>Nama Lengkap</span>
                         </label>
                         <input type="text" id="nama" name="nama" value="{{ $anggota->nama }}" required
-                            placeholder="Masukkan nama lengkap"
-                            class="block w-full px-4 py-3 md:py-4 rounded-lg border-2 border-slate-200
-                                  focus:border-[#65764a] focus:ring-4 focus:ring-[#65764a]/20
-                                  transition-all duration-200 ease-in-out
-                                  group-hover:border-slate-300
-                                  placeholder-slate-400 text-slate-700 text-sm md:text-base">
+                               placeholder="Masukkan nama lengkap"
+                               class="block w-full px-4 py-3 md:py-4 rounded-lg border-2 border-slate-200
+                                      focus:border-[#65764a] focus:ring-4 focus:ring-[#65764a]/20
+                                      transition-all duration-200 ease-in-out
+                                      group-hover:border-slate-300
+                                      placeholder-slate-400 text-slate-700 text-sm md:text-base">
                     </div>
 
-                    {{-- No HP Field --}}
+                    {{-- No HP --}}
                     <div class="group md:col-span-1">
                         <label for="no_hp" class="flex items-center space-x-2 text-sm font-semibold text-slate-700 mb-2">
                             <svg class="w-4 h-4 text-[#65764a]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z">
+                                      d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z">
                                 </path>
                             </svg>
                             <span>Nomor Handphone</span>
                         </label>
                         <input type="text" id="no_hp" name="no_hp" value="{{ $anggota->no_hp }}" required
-                            placeholder="Contoh: 08123456789"
-                            class="block w-full px-4 py-3 md:py-4 rounded-lg border-2 border-slate-200
-                                  focus:border-[#65764a] focus:ring-4 focus:ring-[#65764a]/20
-                                  transition-all duration-200 ease-in-out
-                                  group-hover:border-slate-300
-                                  placeholder-slate-400 text-slate-700 text-sm md:text-base">
+                               placeholder="Contoh: 08123456789"
+                               class="block w-full px-4 py-3 md:py-4 rounded-lg border-2 border-slate-200
+                                      focus:border-[#65764a] focus:ring-4 focus:ring-[#65764a]/20
+                                      transition-all duration-200 ease-in-out
+                                      group-hover:border-slate-300
+                                      placeholder-slate-400 text-slate-700 text-sm md:text-base">
                     </div>
 
-                    {{-- Status Keikutsertaan Field --}}
+                    {{-- Status --}}
                     <div class="group md:col-span-1">
                         <label for="status_keikutsertaan"
-                            class="flex items-center space-x-2 text-sm font-semibold text-slate-700 mb-2">
+                               class="flex items-center space-x-2 text-sm font-semibold text-slate-700 mb-2">
                             <svg class="w-4 h-4 text-[#65764a]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                      d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                             </svg>
                             <span>Status Keikutsertaan</span>
                         </label>
                         <div class="relative">
                             <select id="status_keikutsertaan" name="status_keikutsertaan" required
-                                class="block w-full px-4 py-3 md:py-4 rounded-lg border-2 border-slate-200
-                                       focus:border-[#65764a] focus:ring-4 focus:ring-[#65764a]/20
-                                       transition-all duration-200 ease-in-out
-                                       group-hover:border-slate-300
-                                       text-slate-700 appearance-none cursor-pointer text-sm md:text-base">
-                                <option value="1" {{ $anggota->status_keikutsertaan === 1 ? 'selected' : '' }}>✅ Aktif
-                                </option>
-                                <option value="0" {{ $anggota->status_keikutsertaan === 0 ? 'selected' : '' }}>❌ Tidak
-                                    Aktif</option>
+                                    class="block w-full px-4 py-3 md:py-4 rounded-lg border-2 border-slate-200
+                                           focus:border-[#65764a] focus:ring-4 focus:ring-[#65764a]/20
+                                           transition-all duration-200 ease-in-out
+                                           group-hover:border-slate-300
+                                           text-slate-700 appearance-none cursor-pointer text-sm md:text-base">
+                                <option value="1" {{ $anggota->status_keikutsertaan === 1 ? 'selected' : '' }}>✅ Aktif</option>
+                                <option value="0" {{ $anggota->status_keikutsertaan === 0 ? 'selected' : '' }}>❌ Tidak Aktif</option>
                             </select>
                             <div class="absolute inset-y-0 right-0 flex items-center px-2 pointer-events-none">
                                 <svg class="w-5 h-5 text-slate-400" fill="none" stroke="currentColor"
-                                    viewBox="0 0 24 24">
+                                     viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M19 9l-7 7-7-7"></path>
+                                          d="M19 9l-7 7-7-7"></path>
                                 </svg>
                             </div>
                         </div>
                     </div>
 
-                    {{-- Tanggal Bergabung Field --}}
+                    {{-- Tanggal Bergabung --}}
                     <div class="group md:col-span-1">
                         <label for="tanggal_bergabung"
-                            class="flex items-center space-x-2 text-sm font-semibold text-slate-700 mb-2">
+                               class="flex items-center space-x-2 text-sm font-semibold text-slate-700 mb-2">
                             <svg class="w-4 h-4 text-[#65764a]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z">
+                                      d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z">
                                 </path>
                             </svg>
                             <span>Tanggal Bergabung</span>
                         </label>
                         <input type="date" id="tanggal_bergabung" name="tanggal_bergabung"
-                            value="{{ $anggota->tanggal_bergabung }}" required
-                            class="block w-full px-4 py-3 md:py-4 rounded-lg border-2 border-slate-200
-                                  focus:border-[#65764a] focus:ring-4 focus:ring-[#65764a]/20
-                                  transition-all duration-200 ease-in-out
-                                  group-hover:border-slate-300
-                                  text-slate-700 text-sm md:text-base">
+                               value="{{ $anggota->tanggal_bergabung }}" required
+                               class="block w-full px-4 py-3 md:py-4 rounded-lg border-2 border-slate-200
+                                      focus:border-[#65764a] focus:ring-4 focus:ring-[#65764a]/20
+                                      transition-all duration-200 ease-in-out
+                                      group-hover:border-slate-300
+                                      text-slate-700 text-sm md:text-base">
                     </div>
                 </div>
 
                 {{-- Action Buttons --}}
                 <div class="pt-4 md:pt-6 flex flex-col md:flex-row gap-3 md:gap-4">
-                    {{-- Cancel Button --}}
                     <a href="{{ route('anggota.index') }}"
-                        class="group relative w-full md:w-auto md:min-w-[150px]
-                          bg-slate-500 text-white font-bold py-3.5 md:py-4 px-6 md:px-8 rounded-lg shadow-lg
-                          hover:bg-slate-600
-                          transform hover:scale-[1.02] active:scale-[0.98]
-                          transition-all duration-200 ease-in-out
-                          focus:outline-none focus:ring-4 focus:ring-slate-500/30
-                          overflow-hidden text-sm md:text-base text-center">
+                       class="group relative w-full md:w-auto md:min-w-[150px]
+                              bg-slate-500 text-white font-bold py-3.5 md:py-4 px-6 md:px-8 rounded-lg shadow-lg
+                              hover:bg-slate-600
+                              transform hover:scale-[1.02] active:scale-[0.98]
+                              transition-all duration-200 ease-in-out
+                              focus:outline-none focus:ring-4 focus:ring-slate-500/30
+                              overflow-hidden text-sm md:text-base text-center">
                         <span class="relative flex items-center justify-center space-x-2">
                             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M6 18L18 6M6 6l12 12"></path>
+                                      d="M6 18L18 6M6 6l12 12"></path>
                             </svg>
                             <span>Batal</span>
                         </span>
                     </a>
 
-                    {{-- Update Button --}}
                     <button type="submit"
-                        class="group relative w-full md:w-auto md:min-w-[200px] md:ml-auto
-                               bg-gradient-to-r from-[#65764a] to-[#52603c]
-                               text-white font-bold py-3.5 md:py-4 px-6 md:px-8 rounded-lg shadow-lg
-                               hover:from-[#52603c] hover:to-[#3d4a2e]
-                               transform hover:scale-[1.02] active:scale-[0.98]
-                               transition-all duration-200 ease-in-out
-                               focus:outline-none focus:ring-4 focus:ring-[#65764a]/30
-                               overflow-hidden text-sm md:text-base">
+                            class="group relative w-full md:w-auto md:min-w-[200px] md:ml-auto
+                                   bg-gradient-to-r from-[#65764a] to-[#52603c]
+                                   text-white font-bold py-3.5 md:py-4 px-6 md:px-8 rounded-lg shadow-lg
+                                   hover:from-[#52603c] hover:to-[#3d4a2e]
+                                   transform hover:scale-[1.02] active:scale-[0.98]
+                                   transition-all duration-200 ease-in-out
+                                   focus:outline-none focus:ring-4 focus:ring-[#65764a]/30
+                                   overflow-hidden text-sm md:text-base">
                         <span class="relative flex items-center justify-center space-x-2">
                             <svg class="w-5 h-5 group-hover:rotate-12 transition-transform duration-200" fill="none"
-                                stroke="currentColor" viewBox="0 0 24 24">
+                                 stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12"></path>
+                                      d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12"></path>
                             </svg>
                             <span>Perbarui Anggota</span>
                         </span>
-                        {{-- Hover effect overlay --}}
-                        <div
-                            class="absolute inset-0 bg-white/10 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left">
+                        <div class="absolute inset-0 bg-white/10 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left">
                         </div>
                     </button>
                 </div>
             </form>
         </div>
 
-        {{-- Footer dengan informasi tambahan --}}
+        {{-- Footer --}}
         <div class="px-6 md:px-8 py-4 bg-slate-50 border-t border-slate-100">
             <p class="text-xs md:text-sm text-slate-500 text-center flex items-center justify-center space-x-1">
                 <svg class="w-3 h-3 md:w-4 md:h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                        d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                          d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                 </svg>
                 <span>Perubahan akan disimpan setelah menekan tombol "Perbarui Anggota"</span>
             </p>

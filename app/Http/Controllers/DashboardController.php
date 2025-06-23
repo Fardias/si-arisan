@@ -52,8 +52,6 @@ class DashboardController extends Controller
             ->whereYear('created_at', now()->year)
             ->sum('total_setoran');
 
-
-
         return view('dashboard.main', compact('total_anggota', 'get_anggota', 'total_uang', 'sudah_lunas', 'aktivitas','total_transaksi_bulan_ini'));
     }
 }
