@@ -1,6 +1,6 @@
 <aside class="h-full p-4 flex flex-col bg-[#f8f9f4] shadow-md rounded-r-xl">
 
-    {{-- Logo dan Tombol Tutup --}}
+    
     <div class="flex flex-col items-center mb-6">
         <img src="{{ asset('images/logo-arisan2.png') }}" alt="logo arisan" class="size-32 mx-auto mb-2">
         <button id="sidebar-close-button" class="lg:hidden text-slate-600 hover:text-red-500 transition">
@@ -11,8 +11,8 @@
         </button>
     </div>
 
-    {{-- Menu --}}
-    <nav class="flex-grow space-y-1">
+
+    <nav class="flex-grow space-y-1 -mt-4">
         <a href="{{ route('dashboard') }}"
             class="flex items-center gap-2 py-2.5 px-4 rounded-lg font-medium transition-all duration-200
                 {{ request()->routeIs('dashboard') ? 'bg-[#65764a] text-white shadow' : 'text-[#65764a] hover:bg-[#e9eddc]' }}">
@@ -40,12 +40,24 @@
             </svg>
             Transaksi
         </a>
+        <a href="{{ route('spin-arisan') }}"
+            class="flex items-center gap-2 py-2.5 px-4 rounded-lg font-medium transition-all duration-200
+                {{ request()->routeIs('spin-arisan') ? 'bg-[#65764a] text-white shadow' : 'text-[#65764a] hover:bg-[#e9eddc]' }}">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M4 4h16v16H4z" />
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M8 12h8M12 8v8" />
+            </svg>
+        Kocok
+        </a>
+
     </nav>
 
-    {{-- Divider --}}
+
     <div class="border-t border-[#cbd5b0] my-4"></div>
 
-    {{-- Logout --}}
+
     <div class="mt-auto">
         <form method="POST" action="{{ route('logout') }}">
             @csrf

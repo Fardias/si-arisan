@@ -4,7 +4,7 @@
 @section('header', 'Tambah Anggota')
 
 @section('content')
-    {{-- Include Alert Component --}}
+
     @include('components.alert')
 
     <div class="mb-8">
@@ -46,7 +46,7 @@
                                   placeholder-slate-400 text-slate-700 text-sm md:text-base">
                     </div>
 
-                    {{-- No HP Field --}}
+
                     <div class="group md:col-span-1">
                         <label for="no_hp" class="flex items-center space-x-2 text-sm font-semibold text-slate-700 mb-2">
                             <svg class="w-4 h-4 text-[#65764a]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -64,8 +64,8 @@
                                   placeholder-slate-400 text-slate-700 text-sm md:text-base">
                     </div>
 
-                    {{-- Status Keikutsertaan Field --}}
-                    <div class="group md:col-span-1">
+
+                    {{-- <div class="group md:col-span-1">
                         <label for="status_keikutsertaan"
                             class="flex items-center space-x-2 text-sm font-semibold text-slate-700 mb-2">
                             <svg class="w-4 h-4 text-[#65764a]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -92,10 +92,10 @@
                                         d="M19 9l-7 7-7-7"></path>
                                 </svg>
                             </div>
-                        </div>
-                    </div>
+                        </div> --}}
+                    {{-- </div> --}}
 
-                    {{-- Tanggal Bergabung Field --}}
+
                     <div class="group md:col-span-1">
                         <label for="tanggal_bergabung"
                             class="flex items-center space-x-2 text-sm font-semibold text-slate-700 mb-2">
@@ -115,7 +115,7 @@
                     </div>
                 </div>
 
-                {{-- Submit Button --}}
+
                 <div class="pt-4 md:pt-6">
                     <button type="submit"
                         class="group relative w-full md:w-auto md:min-w-[200px] md:ml-auto md:block
@@ -134,7 +134,7 @@
                             </svg>
                             <span>Simpan Anggota</span>
                         </span>
-                        {{-- Hover effect overlay --}}
+
                         <div
                             class="absolute inset-0 bg-white/10 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left">
                         </div>
@@ -143,7 +143,7 @@
             </form>
         </div>
 
-        {{-- Footer dengan informasi tambahan --}}
+
         <div class="px-6 md:px-8 py-4 bg-slate-50 border-t border-slate-100">
             <p class="text-xs md:text-sm text-slate-500 text-center flex items-center justify-center space-x-1">
                 <svg class="w-3 h-3 md:w-4 md:h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">

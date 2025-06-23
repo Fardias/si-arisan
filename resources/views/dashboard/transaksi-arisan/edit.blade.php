@@ -6,7 +6,7 @@
 @section('content')
     <div
         class="max-w-md mx-auto md:max-w-full md:mx-0 bg-white rounded-xl shadow-xl overflow-hidden transform transition-all duration-300 hover:shadow-2xl">
-        {{-- Header dengan gradient background --}}
+
         <div class="bg-gradient-to-r from-[#65764a] to-[#52603c] p-6 text-white">
             <div class="flex items-center space-x-3">
                 <div class="bg-white/20 p-2 rounded-lg">
@@ -23,16 +23,16 @@
             </div>
         </div>
 
-        {{-- Form Content --}}
+
         <div class="p-6 md:p-8 bg-gradient-to-b from-slate-50 to-white">
             <form action="{{ route('transaksi-arisan.update', $transaksi->id) }}" method="POST" class="space-y-5">
                 @csrf
                 @method('PUT')
 
-                {{-- Grid Layout untuk Desktop --}}
+
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-6">
 
-                    {{-- Pilih Anggota --}}
+
                     <div class="group md:col-span-1">
                         <label for="anggota_id"
                             class="flex items-center space-x-2 text-sm font-semibold text-slate-700 mb-2">
@@ -66,7 +66,7 @@
                         </div>
                     </div>
 
-                    {{-- Periode --}}
+
                     <div class="group md:col-span-1">
                         <label for="periode" class="flex items-center space-x-2 text-sm font-semibold text-slate-700 mb-2">
                             <svg class="w-4 h-4 text-[#65764a]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -84,7 +84,7 @@
                                   text-slate-700 text-sm md:text-base">
                     </div>
 
-                    {{-- Total Setoran --}}
+
                     <div class="group md:col-span-1">
                         <label for="total_setoran"
                             class="flex items-center space-x-2 text-sm font-semibold text-slate-700 mb-2">
@@ -108,7 +108,7 @@
                         </div>
                     </div>
 
-                    {{-- Status Pembayaran --}}
+
                     <div class="group md:col-span-1">
                         <label for="status_sudah_lunas"
                             class="flex items-center space-x-2 text-sm font-semibold text-slate-700 mb-2">
@@ -141,7 +141,7 @@
                     </div>
                 </div>
 
-                {{-- Status Menang Arisan --}}
+
                 <div class="group">
                     <label class="flex items-center space-x-2 text-sm font-semibold text-slate-700 mb-3">
                         <svg class="w-4 h-4 text-[#65764a]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -169,9 +169,9 @@
                     </div>
                 </div>
 
-                {{-- Action Buttons --}}
+
                 <div class="pt-4 md:pt-6 flex flex-col md:flex-row gap-3 md:gap-4">
-                    {{-- Cancel Button --}}
+
                     <a href="{{ route('transaksi-arisan.index') }}"
                         class="group relative w-full md:w-auto md:min-w-[150px]
                           bg-slate-500 text-white font-bold py-3.5 md:py-4 px-6 md:px-8 rounded-lg shadow-lg
@@ -189,7 +189,7 @@
                         </span>
                     </a>
 
-                    {{-- Update Button --}}
+                    
                     <button type="submit"
                         class="group relative w-full md:w-auto md:min-w-[200px] md:ml-auto
                                bg-gradient-to-r from-[#65764a] to-[#52603c]
@@ -207,7 +207,7 @@
                             </svg>
                             <span>Perbarui Transaksi</span>
                         </span>
-                        {{-- Hover effect overlay --}}
+
                         <div
                             class="absolute inset-0 bg-white/10 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left">
                         </div>

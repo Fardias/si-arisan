@@ -33,7 +33,7 @@ class AnggotaController extends Controller
         $request->validate([
             'nama' => 'required',
             'no_hp' => 'required',
-            'status_keikutsertaan' => 'required',
+            'status_keikutsertaan' => 'nullable|in:1,0',
             'tanggal_bergabung' => 'required|date',
         ]);
 
@@ -66,7 +66,7 @@ class AnggotaController extends Controller
     {
         $request->validate([
             'nama' => 'required',
-            'no_hp' => 'required',
+            'no_hp' => 'required',  
             'status_keikutsertaan' => 'required',
             'tanggal_bergabung' => 'required|date',
         ]);

@@ -1,4 +1,3 @@
-{{-- Enhanced Alert Component - Right to Left Animation --}}
 @if (session('success'))
     <div id="success-alert"
         class="fixed top-5 right-5 z-50 flex items-center p-4 mb-4 w-full max-w-md text-green-800 bg-green-100 rounded-lg shadow-lg transform translate-x-full opacity-0 transition-all duration-700 ease-out"
@@ -30,15 +29,40 @@
     </div>
 @endif
 @if (session('error'))
-    {{-- Kode Alert Error Anda yang serupa di sini --}}
+    <div id="error-alert"
+        class="fixed top-5 right-5 z-50 flex items-center p-4 mb-4 w-full max-w-md text-red-800 bg-red-100 rounded-lg shadow-lg transform translate-x-full opacity-0 transition-all duration-700 ease-out"
+        role="alert">
+        <div class="flex-shrink-0">
+            <div class="w-8 h-8 bg-red-500 rounded-full flex items-center justify-center animate-pulse">
+                <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd"
+                        d="M18 10A8 8 0 11 2 10a8 8 0 0116 0zm-7-4a1 1 0 10-2 0v4a1 1 0 002 0V6zm-1 8a1.5 1.5 0 100-3 1.5 1.5 0 000 3z"
+                        clip-rule="evenodd"></path>
+                </svg>
+            </div>
+        </div>
+        <div class="ml-3 text-sm font-medium flex-1">
+            <div class="font-semibold text-red-900">Gagal!</div>
+            <div class="text-red-700">{{ session('error') }}</div>
+        </div>
+        <button type="button" onclick="closeAlert('error-alert')"
+            class="ml-auto -mx-1.5 -my-1.5 bg-red-100 text-red-500 rounded-lg focus:ring-2 focus:ring-red-400 p-1.5 hover:bg-red-200 inline-flex h-8 w-8 transition-colors duration-200"
+            aria-label="Close">
+            <span class="sr-only">Close</span>
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd"
+                    d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.697a1 1 0 010-1.414z"
+                    clip-rule="evenodd"></path>
+            </svg>
+        </button>
+        <div class="absolute bottom-0 left-0 h-1 bg-red-500 rounded-b-lg animate-progress"></div>
+    </div>
 @endif
 
-{{-- Delete Confirmation Modal - Advanced UI/UX --}}
 <div id="deleteModal" class="fixed inset-0 z-50 hidden flex items-end justify-end p-4">
     <div id="deleteModalCard"
         class="w-full max-w-md bg-gradient-to-br from-gray-800 to-gray-900 rounded-2xl shadow-2xl border border-gray-700/50 transform transition-all duration-300 ease-out opacity-0 scale-95 translate-y-4">
         <div class="p-6 flex space-x-5">
-            {{-- Icon Section --}}
             <div id="deleteModalIcon"
                 class="flex-shrink-0 flex items-center justify-center w-14 h-14 rounded-full bg-red-500/10 transition-opacity duration-300 ease-out opacity-0">
                 <svg class="w-8 h-8 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -48,17 +72,15 @@
                 </svg>
             </div>
 
-            {{-- Content Section --}}
             <div class="flex-grow">
                 <div id="deleteModalContent" class="transition-opacity duration-300 delay-100 ease-out opacity-0">
                     <h3 class="text-xl font-bold text-gray-100">Konfirmasi Hapus</h3>
                     <p class="mt-2 text-sm text-gray-400">
                         Apakah Anda yakin ingin menghapus <strong id="deleteItemName"
-                            class="font-bold text-gray-200">data ini</strong>? Tindakan ini tidak dapat dibatalkan.
+                            class="font-bold text-gray-200">data ini</strong>?
                     </p>
                 </div>
 
-                {{-- Button Section --}}
                 <div id="deleteModalButtons"
                     class="mt-6 flex justify-end space-x-4 transition-opacity duration-300 delay-200 ease-out opacity-0">
                     <button id="cancelDeleteBtn"

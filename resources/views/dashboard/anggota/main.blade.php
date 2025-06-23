@@ -4,7 +4,6 @@
 
 @section('content')
 
-    {{-- Include Alert Component --}}
     @include('components.alert')
 
     <div class="mb-8">

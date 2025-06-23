@@ -4,7 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <title>@yield('title', 'Dashboard')</title>
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     @vite('resources/css/app.css')
+    @stack('styles')
 </head>
 
 <body class="bg-gray-100">
@@ -59,6 +61,7 @@
             sidebarOverlay.addEventListener('click', closeSidebar);
         });
     </script>
+    @stack('scripts')
 </body>
 
 </html>

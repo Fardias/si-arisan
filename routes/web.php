@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\LogoutController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\SpinController;
 
 Route::redirect('/', '/login');
 
@@ -14,13 +15,12 @@ Route::post('/login', [LoginController::class, 'login']);
 
 Route::post('/logout', [LogoutController::class, 'logout'])->name('logout');
 
-// dashboard route
 Route::middleware('auth')->group(function () {
 
-    // dahsboard anggota route
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
-    // resource route
     Route::resource('anggota', AnggotaController::class);
-    // dashboard transaksi arisan route
     Route::resource('transaksi-arisan', TransaksiArisanController::class);
+
+    Route::get('/spin-arisan', [SpinController::class, 'spin'])->name('spin-arisan');
+    Route::post('/spin-arisan', [SpinController::class, 'spinResult'])->name('spin-arisan.result');
 });

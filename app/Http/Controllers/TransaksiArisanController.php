@@ -22,7 +22,7 @@ class TransaksiArisanController extends Controller
      */
     public function create()
     {
-        $anggota = Anggota::all(); 
+        $anggota = Anggota::all();
         return view('dashboard.transaksi-arisan.tambah', compact('anggota'));
     }
 
@@ -39,6 +39,15 @@ class TransaksiArisanController extends Controller
             'status_sudah_lunas' => 'required|boolean',
             'status_menang_arisan' => 'required|boolean',
         ]);
+
+        $checkTransaksi = TransaksiArisan::where('anggota_id', $request->anggota_id)
+            ->where('periode', $request->periode)
+            ->first();
+         
+        if ($checkTransaksi) {
+            return redirect()->route('transaksi-arisan.index')->with('error', 'Transaksi untuk anggota ini pada periode ini sudah ada.');
+
+        }
 
         TransaksiArisan::create($request->all());
 
