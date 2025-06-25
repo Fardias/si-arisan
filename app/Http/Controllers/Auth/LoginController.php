@@ -24,11 +24,10 @@ class LoginController extends Controller
         $user = User::where('email', 'admin@example.com')->first();
 
         if ($user && Hash::check($credentials['password'], $user->password)) {
-            // Simpan login ke session manual
             session()->put('is_logged_in', true);
             session()->put('user_id', $user->id);
             session()->put('name', $user->name);
-
+ 
             return redirect()->route('dashboard')->with('success', 'Login berhasil');
         }
 
